@@ -87,13 +87,13 @@ let make = (
       let reason =
         paymentMethodListValue.payment_methods
         ->Array.find(method_ =>
-          method_.payment_method_types->Array.some(pmt =>
-            pmt.payment_method_type == option_.paymentMethodName
+          method_.payment_method_types->Array.some(
+            pmt => pmt.payment_method_type == option_.paymentMethodName,
           )
         )
         ->Option.flatMap(method_ =>
-          method_.payment_method_types->Array.find(pmt =>
-            pmt.payment_method_type == option_.paymentMethodName
+          method_.payment_method_types->Array.find(
+            pmt => pmt.payment_method_type == option_.paymentMethodName,
           )
         )
         ->Option.flatMap(pmt => pmt.not_available_reason)
