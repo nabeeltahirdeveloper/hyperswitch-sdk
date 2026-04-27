@@ -123,6 +123,7 @@ type paymentFieldsInfo = {
   icon: option<React.element>,
   displayName: string,
   miniIcon: option<React.element>,
+  not_available_reason: option<string>,
 }
 
 let defaultPaymentFieldsInfo = {
@@ -131,6 +132,7 @@ let defaultPaymentFieldsInfo = {
   icon: None,
   displayName: "",
   miniIcon: None,
+  not_available_reason: None,
 }
 
 let defaultPaymentMethodContent = {
@@ -147,6 +149,7 @@ let defaultPaymentMethodFields = {
   icon: None,
   displayName: "",
   miniIcon: None,
+  not_available_reason: None,
 }
 
 let icon = (~size=22, ~width=size, name) => <Icon size width name />
@@ -158,6 +161,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("afterpay", ~size=19)),
     displayName: localeString.payment_methods_afterpay_clearpay,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "google_pay",
@@ -165,6 +169,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("google_pay", ~size=19, ~width=25)),
     displayName: localeString.payment_methods_google_pay,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "apple_pay",
@@ -172,6 +177,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("apple_pay", ~size=19, ~width=25)),
     displayName: localeString.payment_methods_apple_pay,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "mb_way",
@@ -179,6 +185,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("mbway", ~size=19)),
     displayName: localeString.payment_methods_mb_way,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "mobile_pay",
@@ -186,6 +193,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("mobilepay", ~size=19)),
     displayName: localeString.payment_methods_mobile_pay,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ali_pay",
@@ -193,6 +201,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("alipay", ~size=19)),
     displayName: localeString.payment_methods_ali_pay,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ali_pay_hk",
@@ -200,6 +209,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("alipayhk", ~size=19)),
     displayName: localeString.payment_methods_ali_pay_hk,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "we_chat_pay",
@@ -207,6 +217,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("wechatpay", ~size=19)),
     displayName: localeString.payment_methods_we_chat_pay,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "duit_now",
@@ -214,6 +225,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("duitNow", ~size=20)),
     displayName: localeString.payment_methods_duit_now,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "revolut_pay",
@@ -221,6 +233,23 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("revolut", ~size=20)),
     displayName: localeString.payment_methods_revolut_pay,
     miniIcon: None,
+    not_available_reason: None,
+  },
+  {
+    paymentMethodName: "jazz_cash",
+    fields: [InfoElement],
+    icon: None,
+    displayName: "JazzCash",
+    miniIcon: None,
+    not_available_reason: None,
+  },
+  {
+    paymentMethodName: "easy_paisa",
+    fields: [InfoElement],
+    icon: None,
+    displayName: "EasyPaisa",
+    miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "affirm",
@@ -228,6 +257,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("affirm", ~size=20)),
     displayName: localeString.payment_methods_affirm,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "pay_safe_card",
@@ -235,6 +265,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("pay_safe_card", ~size=19)),
     displayName: localeString.payment_methods_pay_safe_card,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "crypto_currency",
@@ -242,6 +273,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("crypto", ~size=19)),
     displayName: localeString.payment_methods_crypto_currency,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "card",
@@ -249,6 +281,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_card,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "klarna",
@@ -256,6 +289,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [InfoElement],
     displayName: localeString.payment_methods_klarna,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "sofort",
@@ -263,6 +297,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [InfoElement],
     displayName: localeString.payment_methods_sofort,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "flexiti",
@@ -270,6 +305,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [InfoElement],
     displayName: "Flixiti",
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "breadpay",
@@ -277,6 +313,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [InfoElement],
     displayName: "Breadpay",
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ach_transfer",
@@ -284,6 +321,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_ach_transfer,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "bacs_transfer",
@@ -291,6 +329,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_bacs_transfer,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "sepa_bank_transfer",
@@ -298,6 +337,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_sepa_bank_transfer,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "instant_bank_transfer",
@@ -305,6 +345,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_instant_bank_transfer,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "instant_bank_transfer_finland",
@@ -312,6 +353,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_instant_bank_transfer_finland,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "instant_bank_transfer_poland",
@@ -319,6 +361,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_instant_bank_transfer_poland,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "sepa_debit",
@@ -326,6 +369,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_sepa_debit,
     fields: [],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "giropay",
@@ -333,6 +377,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_giropay,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "eps",
@@ -340,6 +385,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_eps,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "walley",
@@ -347,6 +393,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_walley,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "pay_bright",
@@ -354,6 +401,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_pay_bright,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ach_debit",
@@ -361,6 +409,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_ach_debit,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "bacs_debit",
@@ -368,6 +417,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_bacs_debit,
     fields: [InfoElement],
     miniIcon: Some(icon("bank", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "becs_debit",
@@ -375,6 +425,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_becs_debit,
     fields: [InfoElement],
     miniIcon: Some(icon("bank", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "blik",
@@ -382,6 +433,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_blik,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "trustly",
@@ -389,6 +441,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_trustly,
     fields: [Country, InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "bancontact_card",
@@ -396,6 +449,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_bancontact_card,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "online_banking_czech_republic",
@@ -403,6 +457,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_online_banking_czech_republic,
     fields: [Bank, InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "online_banking_slovakia",
@@ -410,6 +465,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_online_banking_slovakia,
     fields: [Bank, InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "online_banking_finland",
@@ -417,6 +473,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_online_banking_finland,
     fields: [Bank, InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "online_banking_poland",
@@ -424,6 +481,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_online_banking_poland,
     fields: [Bank, InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ideal",
@@ -431,6 +489,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_ideal,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ban_connect",
@@ -438,6 +497,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_ban_connect,
     fields: [],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "ach_bank_debit",
@@ -445,6 +505,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_ach_bank_debit,
     fields: [],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "przelewy24",
@@ -452,6 +513,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_przelewy24,
     fields: [Email, Bank, InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "interac",
@@ -459,6 +521,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_interac,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "twint",
@@ -466,6 +529,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_twint,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "vipps",
@@ -473,6 +537,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_vipps,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "dana",
@@ -480,6 +545,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_dana,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "go_pay",
@@ -487,6 +553,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_go_pay,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "kakao_pay",
@@ -494,6 +561,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_kakao_pay,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "gcash",
@@ -501,6 +569,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_gcash,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "momo",
@@ -508,6 +577,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_momo,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "touch_n_go",
@@ -515,6 +585,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_touch_n_go,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "bizum",
@@ -522,6 +593,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_bizum,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "classic",
@@ -529,6 +601,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_classic,
     fields: [InfoElement],
     miniIcon: Some(icon("cash_voucher", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "online_banking_fpx",
@@ -536,6 +609,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_online_banking_fpx,
     fields: [Bank, InfoElement], // add more fields for these payment methods
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "online_banking_thailand",
@@ -543,6 +617,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_online_banking_thailand,
     fields: [Bank, InfoElement], // add more fields for these payment methods
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "alma",
@@ -550,6 +625,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_alma,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "atome",
@@ -557,6 +633,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_atome,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "multibanco_transfer",
@@ -564,6 +641,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_multibanco_transfer,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "card_redirect",
@@ -571,6 +649,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_card_redirect,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "open_banking_uk",
@@ -578,6 +657,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_pay_by_bank,
     fields: [InfoElement],
     miniIcon: Some(icon("bank", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "open_banking_pis",
@@ -585,6 +665,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_open_banking_pis,
     fields: [InfoElement],
     miniIcon: Some(icon("bank", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "evoucher",
@@ -592,6 +673,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_evoucher,
     fields: [InfoElement],
     miniIcon: Some(icon("cash_voucher", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "pix_transfer",
@@ -599,6 +681,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("pix", ~size=26, ~width=40)),
     displayName: localeString.payment_methods_pix_transfer,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "boleto",
@@ -606,6 +689,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_boleto,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "paypal",
@@ -613,6 +697,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_paypal,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "local_bank_transfer_transfer",
@@ -620,6 +705,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("union-pay", ~size=19, ~width=30)),
     displayName: localeString.payment_methods_local_bank_transfer_transfer,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "mifinity",
@@ -627,6 +713,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("mifinity")),
     displayName: localeString.payment_methods_mifinity,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "skrill",
@@ -634,6 +721,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("skrill", ~size=19)),
     displayName: "Skrill",
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "bluecode",
@@ -641,6 +729,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("bluecode")),
     displayName: "Bluecode",
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "upi_collect",
@@ -648,6 +737,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("bhim_upi", ~size=19)),
     displayName: localeString.payment_methods_upi_collect,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "upi_intent",
@@ -655,6 +745,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     icon: Some(icon("bhim_upi", ~size=19)),
     displayName: "UPI Intent",
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "eft",
@@ -662,6 +753,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [InfoElement],
     displayName: localeString.payment_methods_eft,
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "givex",
@@ -669,6 +761,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_givex,
     fields: [InfoElement],
     miniIcon: None,
+    not_available_reason: None,
   },
   {
     paymentMethodName: "open_banking",
@@ -676,6 +769,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     displayName: localeString.payment_methods_pay_by_bank,
     fields: [InfoElement],
     miniIcon: Some(icon("bank", ~size=19)),
+    not_available_reason: None,
   },
   {
     paymentMethodName: "saved_methods",
@@ -683,6 +777,7 @@ let getPaymentMethodsFields = (~localeString: LocaleStringTypes.localeStrings) =
     fields: [],
     displayName: localeString.payment_methods_saved_methods,
     miniIcon: None,
+    not_available_reason: None,
   },
 ]
 
@@ -860,6 +955,7 @@ let getPaymentMethodFields = (
         icon: Some(icon("", ~size=19, ~width=25)),
         displayName: "",
         miniIcon: Some(icon("", ~size=19, ~width=25)),
+        not_available_reason: None,
       })
     ).fields,
   )
@@ -909,6 +1005,7 @@ type paymentMethodTypes = {
   required_fields: array<required_fields>,
   surcharge_details: option<surchargeDetails>,
   pm_auth_connector: option<string>,
+  not_available_reason: option<string>,
 }
 
 type methods = {
@@ -961,6 +1058,7 @@ let defaultPaymentMethodType = {
   required_fields: [],
   surcharge_details: None,
   pm_auth_connector: None,
+  not_available_reason: None,
 }
 
 let defaultIntentData = {
@@ -1134,6 +1232,7 @@ let getPaymentMethodTypes = (dict, str) => {
       ),
       surcharge_details: jsonDict->getSurchargeDetails,
       pm_auth_connector: getOptionString(jsonDict, "pm_auth_connector"),
+      not_available_reason: getOptionString(jsonDict, "not_available_reason"),
     }
   })
 }

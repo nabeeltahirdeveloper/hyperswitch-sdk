@@ -82,10 +82,33 @@ let make = (
     CardUtils.blurRef(selectRef)
   }
 
-  let cardOptionDetails = cardOptions->PaymentMethodsRecord.getPaymentDetails(~localeString)
+  let enrichWithNotAvailableReason = (details: array<PaymentMethodsRecord.paymentFieldsInfo>) =>
+    details->Array.map(option_ => {
+      let reason =
+        paymentMethodListValue.payment_methods
+        ->Array.find(method_ =>
+          method_.payment_method_types->Array.some(
+            pmt => pmt.payment_method_type == option_.paymentMethodName,
+          )
+        )
+        ->Option.flatMap(method_ =>
+          method_.payment_method_types->Array.find(
+            pmt => pmt.payment_method_type == option_.paymentMethodName,
+          )
+        )
+        ->Option.flatMap(pmt => pmt.not_available_reason)
+      {...option_, not_available_reason: reason}
+    })
+
+  let cardOptionDetails =
+    cardOptions
+    ->PaymentMethodsRecord.getPaymentDetails(~localeString)
+    ->enrichWithNotAvailableReason
 
   let dropDownOptionsDetails =
-    dropDownOptions->PaymentMethodsRecord.getPaymentDetails(~localeString)
+    dropDownOptions
+    ->PaymentMethodsRecord.getPaymentDetails(~localeString)
+    ->enrichWithNotAvailableReason
 
   let allOptions = cardOptionDetails->Array.concat(dropDownOptionsDetails)
 
