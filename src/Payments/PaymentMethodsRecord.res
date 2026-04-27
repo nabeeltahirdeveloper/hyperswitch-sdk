@@ -955,7 +955,7 @@ let getPaymentMethodFields = (
         icon: Some(icon("", ~size=19, ~width=25)),
         displayName: "",
         miniIcon: Some(icon("", ~size=19, ~width=25)),
-    not_available_reason: None,
+        not_available_reason: None,
       })
     ).fields,
   )
