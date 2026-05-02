@@ -8,7 +8,7 @@ let localeStrings: LocaleStringTypes.localeStrings = {
   inCompleteExpiryErrorText: "Your card's expiration date is incomplete.",
   enterValidCardNumberErrorText: "Please enter a valid card number.",
   pastExpiryErrorText: "Your card's expiration year is in the past.",
-  poweredBy: "Powered By Hyperswitch",
+  poweredBy: "Powered By Vexgate",
   validThruText: "Expiry",
   sortCodeText: "Sort Code",
   cvcTextLabel: "CVC",
