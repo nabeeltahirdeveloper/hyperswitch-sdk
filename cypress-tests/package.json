@@ -6,7 +6,7 @@
   "scripts": {
     "format:cypress": "prettier --write \"cypress/**/*.{js,ts,jsx,tsx}\"",
     "lint": "./node_modules/.bin/tslint -c tslint.json -p cypress/**/*.ts -t stylish",
-    "start": "cypress open",
+    "start": "node api.js && cypress open",
     "test": "cypress run"
   },
   "repository": {

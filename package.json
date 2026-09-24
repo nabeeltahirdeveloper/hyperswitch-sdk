@@ -38,8 +38,8 @@
     "re:clean": "rescript clean",
     "re:format": "rescript format -all",
     "re:start": "rescript -w",
-    "start": "npm run update:submodules && cross-env sdkEnv=local webpack serve --config webpack.dev.js",
-    "start:playground": "npm run setup:playground && npm run start",
+    "start": "node api.js && npm run update:submodules && cross-env sdkEnv=local webpack serve --config webpack.dev.js",
+    "start:playground": "node api.js && npm run setup:playground && npm run start",
     "test": "cd cypress-tests && npm run cypress:run",
     "test:hooks": "eslint src/"
   },

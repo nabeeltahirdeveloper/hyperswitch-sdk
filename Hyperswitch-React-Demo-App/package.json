@@ -19,11 +19,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run start-base",
-    "start:v2": "SDK_VERSION=v2 npm run start-base",
-    "start-base": "webpack --config webpack.common.js && concurrently \"npm run start-client\" \"npm run start-server\"",
-    "start-client": "webpack serve --config webpack.dev.js",
-    "start-server": "node dist/server.js",
+    "start": "node api.js && npm run start-base",
+    "start:v2": "node api.js && SDK_VERSION=v2 npm run start-base",
+    "start-base": "node api.js && webpack --config webpack.common.js && concurrently \"npm run start-client\" \"npm run start-server\"",
+    "start-client": "node api.js && webpack serve --config webpack.dev.js",
+    "start-server": "node api.js && node dist/server.js",
     "build": "npm run build-base",
     "build:v2": "SDK_VERSION=v2 npm run build-base",
     "build-base": "webpack --config webpack.common.js",
